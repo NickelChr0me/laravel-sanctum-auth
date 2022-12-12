@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1>Hello From Vue</h1>
+        <h1 class="mt-5 text-4xl text-center hover:uppercase">
+            Hello world!
+        </h1>
     </div>
 </template>
 
