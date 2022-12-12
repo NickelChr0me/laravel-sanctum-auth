@@ -22,6 +22,7 @@
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
+        "daisyui": "^2.43.0",
         "vue": "^3.2.45",
         "vue-router": "^4.1.6",
         "vuex": "^4.1.0"
