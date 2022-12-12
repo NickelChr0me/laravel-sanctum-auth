@@ -2174,6 +2174,9 @@ html {
 .mt-5 {
   margin-top: 1.25rem;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
 .flex {
   display: flex;
 }
@@ -2191,6 +2194,9 @@ html {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .bg-base-100 {
   --tw-bg-opacity: 1;
