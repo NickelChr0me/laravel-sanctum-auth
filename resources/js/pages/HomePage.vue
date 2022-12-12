@@ -5,7 +5,7 @@
 
         <div class="my-5 card w-96 bg-base-100 shadow-xl">
             <div class="card-body items-center">
-                <h2 class="card-title">Hello world!</h2>
+                <h2 class="card-title">Hello world !</h2>
                 <div class="card-actions justify-end">
                     <a href="https://github.com/NickelChr0me/laravel-sanctum-auth/" target="_blank">
                         <button class="btn btn-primary" >GitHub of project</button>
@@ -18,12 +18,21 @@
 
 <script>
 import Header from '../components/commons/Header.vue';
+import { mapStores } from 'pinia';
+import { useAuthStore } from '../store/auth.js';
 
 export default {
     name: "HomePage",
     components: {
         Header
-    }
+    },
+    computed: {
+        ...mapStores(useAuthStore)
+    },
+    mounted()
+    {
+        // console.log(this.authIdStore.getUserName + ' is connected !')
+    },
 }
 </script>
 
