@@ -137,7 +137,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)('authId', {
   state: function state() {
     return {
-      user: {}
+      user: {},
+      blogs: {}
     };
   },
   actions: {
@@ -184,6 +185,27 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)('authId', 
             }
           }
         }, _callee2);
+      }))();
+    },
+    loadBlogs: function loadBlogs() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/blogs');
+              case 2:
+                response = _context3.sent;
+                _this3.blogs = response.data;
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }

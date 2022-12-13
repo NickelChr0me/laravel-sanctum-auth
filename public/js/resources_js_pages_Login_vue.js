@@ -36,7 +36,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }
     };
   },
-  methods: _objectSpread({}, (0,pinia__WEBPACK_IMPORTED_MODULE_2__.mapActions)(_store_auth_js__WEBPACK_IMPORTED_MODULE_1__.useAuthStore, ['login']))
+  methods: _objectSpread({}, (0,pinia__WEBPACK_IMPORTED_MODULE_2__.mapActions)(_store_auth_js__WEBPACK_IMPORTED_MODULE_1__.useAuthStore, ['login', 'loadBlogs']))
 });
 
 /***/ }),
@@ -88,7 +88,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.login($data.credential);
     }),
     "class": "btn btn-primary w-24 self-center"
-  }, " Sign In "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }, " Sign In "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.loadBlogs();
+    }),
+    "class": "btn btn-primary w-24 self-center"
+  }, " Load Blogs "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/register"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -121,7 +126,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)('authId', {
   state: function state() {
     return {
-      user: {}
+      user: {},
+      blogs: {}
     };
   },
   actions: {
@@ -168,6 +174,27 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)('authId', 
             }
           }
         }, _callee2);
+      }))();
+    },
+    loadBlogs: function loadBlogs() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/blogs');
+              case 2:
+                response = _context3.sent;
+                _this3.blogs = response.data;
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }

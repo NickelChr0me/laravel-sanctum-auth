@@ -9,6 +9,9 @@
         <button @click="login(credential)" class="btn btn-primary w-24 self-center">
             Sign In
         </button>
+        <button @click="loadBlogs()" class="btn btn-primary w-24 self-center">
+            Load Blogs
+        </button>
         <div class="self-center">
             <router-link to="/register">
                 <a class="text-primary ">Or create an account ?</a>
@@ -37,7 +40,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(useAuthStore, ['login']),
+        ...mapActions(useAuthStore, ['login', 'loadBlogs']),
     },
 }
 </script>
