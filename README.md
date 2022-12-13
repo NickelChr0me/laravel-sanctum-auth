@@ -9,7 +9,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/badge/OK-back--end-orange">
-    <img src="https://img.shields.io/badge/PAS%20OK-front--end-success">
+    <img src="https://img.shields.io/badge/OK-front--end-success">
 </p>
 
 # Laravel-sanctum-auth
