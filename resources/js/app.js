@@ -14,4 +14,4 @@ createApp(App)
     .use(router)
     .mount('#app');
 
-// axios.defaults.headers.common['Autorization'] = authStore.getUserToken // Ne pas mettre les parenthèse () => error method is not defined
+axios.defaults.headers.common['Accept'] = 'application/json';

@@ -23,6 +23,7 @@ class AuthController extends BaseController
             return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
         } 
     }
+
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -44,5 +45,9 @@ class AuthController extends BaseController
    
         return $this->sendResponse($success, 'User created successfully.');
     }
-   
+
+    public function logout()
+    {
+        Auth::logout();
+    }
 }

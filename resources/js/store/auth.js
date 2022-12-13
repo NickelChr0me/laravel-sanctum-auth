@@ -1,25 +1,24 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
+import router from '../router/index.js';
 
 export const useAuthStore = defineStore('authId', {
     state: () => ({
         user: {},
-        blogs: {}
     }),
     actions: {
         async register(credential) {
-            let response = await axios.post('/api/register', credential)
-            this.user = response.data;
+            this.user = await axios.post('/api/register', credential)
         },
         async login(credential) {
             await axios.get('/sanctum/csrf-cookie');
-            const response =  await axios.post('/api/login', credential);
-            this.user = response.data;
+            this.user = (await axios.post('/api/login', credential)).data.data;
+            router.push({name: 'HomePage'});
         },
-        async loadBlogs()
-        {
-            const response = await axios.get('/api/blogs')
-            this.blogs = response.data;
-        }
+        async logout() {
+            await axios.get('/api/logout');
+            this.user = {};
+            router.push({name: 'HomePage'});
+        },
     },
 })

@@ -12,7 +12,8 @@
     <img src="https://img.shields.io/badge/PAS%20OK-front--end-success">
 </p>
 
-Pour réaliser cette API j'ai suivi [ce tuto](https://www.positronx.io/build-secure-php-rest-api-in-laravel-with-sanctum-auth/)
+# Laravel-sanctum-auth
+Projet [laravel](https://laravel.com/docs/8.x) / [VueJs](https://vuejs.org/) utilisant [laravel/sanctum](https://laravel.com/docs/8.x/sanctum) pour l'authentification et fourni avec une API de blogs sécurisé par cookie/session qui offrent les avantages de protections [CSRF](https://developer.mozilla.org/fr/docs/Glossary/CSRF) / [XSS](https://developer.mozilla.org/fr/docs/Glossary/Cross-site_scripting)
 
 ## Installation
 
@@ -40,9 +41,8 @@ Dans le fichier `.env`
 - Indiquer sqlite en valeur de DB_CONNECTION
 ```
 
-Faite les migrations avec `--seed` pour hydrater les tables et lancer le server
+Lancer le server
 ```shell=
-php artisan migrate --seed
 php artisan serve
 ```
 
@@ -60,10 +60,9 @@ __Conseil:__ _Utiliser le client en local pour éviter des erreurs liées à la 
 /api/blogs    | [body => {title, description : String}]
 ```
 
-:rotating_light: Récupérer le token reçu avec la route `/api/login` et l'indiquer en `Bearer Token` dans `Authorization` des requêtes ayant besoin d'une authentification par token
-
 ##### GET
 ```
+/api/logout      | ---
 /api/blogs/{id}  | ---
 /api/blogs       | ---
 ```

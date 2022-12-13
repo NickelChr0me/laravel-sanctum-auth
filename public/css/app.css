@@ -2285,6 +2285,9 @@ html {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -2336,6 +2339,18 @@ html {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .text-xl {
   font-size: 1.25rem;

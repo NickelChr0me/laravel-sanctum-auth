@@ -9,9 +9,6 @@
         <button @click="login(credential)" class="btn btn-primary w-24 self-center">
             Sign In
         </button>
-        <button @click="loadBlogs()" class="btn btn-primary w-24 self-center">
-            Load Blogs
-        </button>
         <div class="self-center">
             <router-link to="/register">
                 <a class="text-primary ">Or create an account ?</a>
@@ -34,13 +31,13 @@ export default {
     {
         return {
             credential: {
-                email: "",
-                password: "",
+                email: "toto@gmail.com",
+                password: "123soleil",
             },
         }
     },
     methods: {
-        ...mapActions(useAuthStore, ['login', 'loadBlogs']),
+        ...mapActions(useAuthStore, ['login']),
     },
 }
 </script>
