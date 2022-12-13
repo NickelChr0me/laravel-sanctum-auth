@@ -3,11 +3,11 @@
 
     <div class="mt-5 flex flex-col space-y-4 gap-2">
         <div class="card-title self-center text-4xl">Register</div>
-        <input v-model="user.name" type="text" placeholder="toto" class="input input-bordered input-primary w-full max-w-xs self-center" />
-        <input v-model="user.email" type="email" placeholder="toto@gmail.com" class="input input-bordered input-primary w-full max-w-xs self-center" />
-        <input v-model="user.password" type="password" placeholder="password" class="input input-bordered input-primary w-full max-w-xs self-center" />
-        <input v-model="user.confirm_password" type="password" placeholder="password" class="input input-bordered input-primary w-full max-w-xs self-center" />
-        <button @click="register()" class="btn btn-primary w-24 self-center">
+        <input v-model="credential.name" type="text" placeholder="toto" class="input input-bordered input-primary w-full max-w-xs self-center" />
+        <input v-model="credential.email" type="email" placeholder="toto@gmail.com" class="input input-bordered input-primary w-full max-w-xs self-center" />
+        <input v-model="credential.password" type="password" placeholder="password" class="input input-bordered input-primary w-full max-w-xs self-center" />
+        <input v-model="credential.confirm_password" type="password" placeholder="password" class="input input-bordered input-primary w-full max-w-xs self-center" />
+        <button @click="register(credential)" class="btn btn-primary w-24 self-center">
             Sign Up
         </button>
         <div class="self-center">
@@ -20,33 +20,27 @@
 
 <script>
 import Header from '../components/commons/Header.vue';
-import { mapStores } from 'pinia';
-import { useAuthStore } from '../store/auth.js';
+import { mapActions } from 'pinia';
+import { useAuthStore } from '../store/auth';
 
 export default {
-    name: "HomePage",
+    name: "Register",
     components: {
         Header
     },
     data()
     {
         return {
-            user: {
-                name: "",
-                email: "",
-                password: "",
-                confirm_password: ""
+            credential: {
+                name: "toto",
+                email: "toto@gmail.com",
+                password: "123soleil",
+                confirm_password: "123soleil"
             },
         }
     },
-    computed: {
-        ...mapStores(useAuthStore)
-    },
     methods: {
-        submitRegister()
-        {
-            this.authIdStore.register(this.user);
-        }
+        ...mapActions(useAuthStore, ['register']),
     }
 }
 </script>
